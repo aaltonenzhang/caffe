@@ -16,6 +16,12 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-18.04]
+        cibw_python: [ "cp37-*" ]
+        cibw_manylinux: [ manylinux1 ]
+        include:
+          - os: ubuntu-18.04
+            cibw_python: "cp37-*"
+            cibw_manylinux: manylinux2010
 
     steps:
     - uses: actions/checkout@v2
@@ -84,8 +90,11 @@ jobs:
         python -m cibuildwheel --output-dir wheelhouse
       # to supply options, put them in 'env', like:
       env:
-        CIBW_BUILD_VERBOSITY: 1
+        CIBW_BUILD: "cp37-*"
         CIBW_ARCHS_LINUX: auto aarch64
+        CIBW_MANYLINUX_X86_64_IMAGE: manylinux1
+        CIBW_MANYLINUX_I686_IMAGE: manylinux1
+        CIBW_BUILD_VERBOSITY: 2
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.2
