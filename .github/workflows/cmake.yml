@@ -85,7 +85,7 @@ jobs:
 
     - name: Build wheels
       run: |
-        cd ${{github.workspace}}/python
+        cd ${{github.workspace}}/python && mkdir wheelhouse
         python -m cibuildwheel --output-dir wheelhouse
       # to supply options, put them in 'env', like:
       env:
