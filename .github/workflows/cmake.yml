@@ -91,6 +91,7 @@ jobs:
       env:
         CIBW_PLATFORM: "linux"
         CIBW_BUILD: "cp37-*"
+        CIBW_REPAIR_WHEEL_COMMAND: ""
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.2
