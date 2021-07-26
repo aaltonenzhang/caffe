@@ -2,9 +2,9 @@ name: CMake
 
 on:
   push:
-    branches: [ nncase ]
+    branches: [ test_ci ]
   pull_request:
-    branches: [ nncase ]
+    branches: [ test_ci ]
 
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
