@@ -73,3 +73,18 @@ jobs:
         name: libcaffe
         path: ${{github.workspace}}/build/lib/libcaffe.so.1.0.0
         if-no-files-found: error
+
+    - name: Install cibuildwheel
+      shell: bash
+      run: pip install cibuildwheel==2.0.1
+
+    - name: Build wheels
+      run: python -m cibuildwheel --output-dir wheelhouse
+      # to supply options, put them in 'env', like:
+      # env:
+      #   CIBW_SOME_OPTION: value
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.2.2
+      with:
+        path: ./wheelhouse/*.whl
