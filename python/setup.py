@@ -9,6 +9,6 @@ setup(
     description='warpctc-caffe',
     packages=setuptools.find_packages(exclude=[]),
     package_data={'caffe': ['_caffe.so']},
-    platforms=['linux']
+    platforms=['Linux']
 )
 
