@@ -83,8 +83,9 @@ jobs:
         cd ${{github.workspace}}/python
         python -m cibuildwheel --output-dir wheelhouse
       # to supply options, put them in 'env', like:
-      # env:
-      #   CIBW_SOME_OPTION: value
+      env:
+        CIBW_BUILD_VERBOSITY: 1
+        CIBW_ARCHS_LINUX: auto aarch64
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.2
