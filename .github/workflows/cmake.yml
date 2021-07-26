@@ -79,7 +79,9 @@ jobs:
       run: pip install cibuildwheel==2.0.1
 
     - name: Build wheels
-      run: python -m cibuildwheel --output-dir wheelhouse
+      run: |
+        cd ${{github.workspace}}/python
+        python -m cibuildwheel --output-dir wheelhouse
       # to supply options, put them in 'env', like:
       # env:
       #   CIBW_SOME_OPTION: value
