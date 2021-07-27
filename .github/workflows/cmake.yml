@@ -93,4 +93,6 @@ jobs:
       if: runner.os == 'Linux'
       uses: actions/upload-artifact@v2.2.2
       with:
+        name: warpctc-caffe
         path: ./python/wheelhouse/*.whl
+        if-no-files-found: error
