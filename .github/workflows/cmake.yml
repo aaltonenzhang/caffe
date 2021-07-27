@@ -87,6 +87,8 @@ jobs:
       run: |
         cd ${{github.workspace}}/python && mkdir wheelhouse
         python -m cibuildwheel --output-dir wheelhouse
+        cd ../ && find . -name '*.whl'
+        cd / && find . -name '*.whl'
       # to supply options, put them in 'env', like:
       env:
         CIBW_PLATFORM: "linux"
@@ -96,4 +98,4 @@ jobs:
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.2
       with:
-        path: /output/*.whl
+        path: wheelhouse/*.whl
