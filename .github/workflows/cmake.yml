@@ -28,9 +28,7 @@ jobs:
       with:
         python-version: 3.7
 
-    - name: Install cibuildwheel
-      shell: bash
-      run: pip install cibuildwheel
+
 
     - name: Build wheels
       if: runner.os == 'Linux'
@@ -63,7 +61,9 @@ jobs:
       uses: actions/setup-python@v2.2.1
       with:
         python-version: 3.9
-
+    - name: Install cibuildwheel
+      shell: bash
+      run: pip install cibuildwheel
     - name: Build wheels
       if: runner.os == 'Macos'
       env:
